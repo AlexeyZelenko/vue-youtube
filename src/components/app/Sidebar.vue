@@ -5,8 +5,7 @@
       :key="link.url"
       tag="li"
       active-class="active"
-      to="link.url"
-
+      :to="link.url"
     >
       <a class="waves-effect waves-orange pointer" href="#">{{link.title}}</a>
     </router-link>
@@ -20,7 +19,7 @@ export default {
       { title: 'Счет', url: '/' },
       { title: 'История', url: '/history' },
       { title: 'Планирование', url: '/planning' },
-      { title: 'Новая запись', url: 'record' },
+      { title: 'Новая запись', url: '/record' },
       { title: 'Категории', url: '/categories' }
     ]
   })
