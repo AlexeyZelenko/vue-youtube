@@ -11,9 +11,8 @@ import EmptyLayout from '@/layouts/EmptyLayout'
 import MainLayout from '@/layouts/MainLayout'
 export default {
   computed: {
-    layout() {
-      console.log(this.$route.meta)
-      return 'empty-layout'
+    layout () {
+      return (this.$route.meta.layout || 'empty') + '-layout'
     }
   },
   components: {
