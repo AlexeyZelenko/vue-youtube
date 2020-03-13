@@ -1,32 +1,22 @@
 <template>
   <ul class="sidenav app-sidenav open">
     <router-link
+      v-for="link in links"
+      :key="link.url"
       tag="li"
       active-class="active"
-      to="/"
-      exact
+      to="link.url"
+
     >
-      <a class="waves-effect waves-orange pointer" href="#">Счет</a>
+      <a class="waves-effect waves-orange pointer" href="#">{{link.title}}</a>
     </router-link>
-    <li>
-      <a class="waves-effect waves-orange pointer" href="#">История</a>
-    </li>
-    <li>
-      <a class="waves-effect waves-orange pointer" href="#">Планирование</a>
-    </li>
-    <li>
-      <a class="waves-effect waves-orange pointer" href="#">Новая запись</a>
-    </li>
-    <li>
-      <a class="waves-effect waves-orange pointer" href="#">Категории</a>
-    </li>
   </ul>
 </template>
 
 <script>
 export default {
   data: () => ({
-    link: [
+    links: [
       { title: 'Счет', url: '/' },
       { title: 'История', url: '/history' },
       { title: 'Планирование', url: '/planning' },
