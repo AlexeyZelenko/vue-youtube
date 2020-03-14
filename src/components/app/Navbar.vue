@@ -5,7 +5,7 @@
         <a href="#" @click.prevent="$emit('click')">
           <i class="material-icons black-text">dehaze</i>
         </a>
-        <span class="black-text">{{date | date}}</span>
+        <span class="black-text">{{date | date('datetime')}}</span>
       </div>
 
       <ul class="right hide-on-small-and-down">
@@ -56,8 +56,7 @@ export default {
     this.interval = setInterval(() => {
       this.date = new Date()
     }, 1000)
-    // eslint-disable-next-line no-undef
-    this.dropdown = M.Dropdown.init(this.$refs.dropdown, {
+    this.dropdown = window.M.Dropdown.init(this.$refs.dropdown, {
       constrainWidth: true
     })
   },
