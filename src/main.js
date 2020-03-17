@@ -5,7 +5,7 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 import dateFilter from '@/filters/date.filters.js'
-import messagePlugin from '@/utils/message.plugin'
+import messagePlugin from '@/utils/message.plugin.js'
 import 'materialize-css/dist/js/materialize.min'
 
 Vue.config.productionTip = false

@@ -1,13 +1,13 @@
 <template>
-  <form @submit.prevent="submitHandler" class="card auth-card">
+  <form class="card auth-card" @submit.prevent="submitHandler">
     <div class="card-content">
       <span class="card-title">Домашняя бухгалтерия</span>
       <div class="input-field">
         <input
-          :class="{invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)}"
           id="email"
           type="text"
           v-model.trim="email"
+          :class="{invalid: ($v.email.$dirty && !$v.email.required) || ($v.email.$dirty && !$v.email.email)}"
         >
         <label for="email">Email</label>
         <small
@@ -21,10 +21,10 @@
       </div>
       <div class="input-field">
         <input
-          :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength)}"
           id="password"
           type="password"
           v-model.trim="password"
+          :class="{invalid: ($v.password.$dirty && !$v.password.required) || ($v.password.$dirty && !$v.password.minLength)}"
         >
         <label for="password">Пароль</label>
         <small
@@ -61,8 +61,8 @@
 </template>
 
 <script>
-import { email, minLength, required } from 'vuelidate/lib/validators'
-import messages from '@/utils/messages'
+import { email, required, minLength } from 'vuelidate/lib/validators'
+// import messages from '@/utils/messages'
 
 export default {
   name: 'login',
@@ -71,22 +71,16 @@ export default {
     password: ''
   }),
   validations: {
-    email: {
-      email,
-      required
-    },
-    password: {
-      required,
-      minLength: minLength(6)
-    }
+    email: {email, required},
+    password: {required, minLength: minLength(6)}
   },
-  mounted () {
+  mounted() {
     if (messages[this.$route.query.message]) {
       this.$message(messages[this.$route.query.message])
     }
   },
   methods: {
-    submitHandler () {
+    submitHandler() {
       if (this.$v.$invalid) {
         this.$v.$touch()
         return
