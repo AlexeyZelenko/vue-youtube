@@ -1,5 +1,5 @@
-export default function currencyFilter(value, currency = 'RUB') {
-  return new Intl.NumberFormat('ru-RU', {
+export default function currencyFilter(value, currency = 'UAH') {
+  return new Intl.NumberFormat('ua-Ua', {
     style: 'currency',
     currency
   }).format(value)
