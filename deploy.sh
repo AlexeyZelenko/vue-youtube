@@ -21,4 +21,4 @@ git commit -m 'deploy'
 git push -f git@github.com:AlexeyZelenko/vue-youtube-public.git master:gh-pages
 
 cd -
-1
+
